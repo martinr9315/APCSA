@@ -61,8 +61,8 @@ public class Cannon extends MovingThing {
 	
 	public void draw( Graphics window)
 	{
-		window.setColor(Color.WHITE);
-		window.fillRect(getX()-100, getY()-100, 300, 200);
+		//window.setColor(Color.WHITE);
+		//window.fillRect(getX()-100, getY()-100, 300, 200);
 		window.setColor(Color.BLACK);
 		for (int i=0; i<20; i++)
 		{

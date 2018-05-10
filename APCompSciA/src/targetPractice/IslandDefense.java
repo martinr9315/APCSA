@@ -20,10 +20,11 @@ import starfighter.Ship;
 public class IslandDefense extends Canvas implements KeyListener, Runnable {
 	
 	private Cannon cannon;
-	private PirateShip pirateShip;
+	//private PirateShip pirateShip;
 	private Cannonball cannonball;
 	private ArrayList<Cannonball> shots;
 	private Image image;
+	private PirateShips ships;
 	
 	private boolean[] keys;
 	private BufferedImage back;
@@ -35,8 +36,9 @@ public class IslandDefense extends Canvas implements KeyListener, Runnable {
 		keys = new boolean[5];
 
 		//instantiate other stuff
-		cannon = new Cannon(50,475,2);
-		pirateShip = new PirateShip(550, 450, 1);
+		cannon = new Cannon(150,475,2);
+		ships = new PirateShips(4);
+		//pirateShip = new PirateShip(550, 439, 1);
 		shots = new ArrayList<Cannonball>();
 		
 		try
@@ -75,16 +77,20 @@ public class IslandDefense extends Canvas implements KeyListener, Runnable {
 		
 		graphToBack.drawImage(image,0,0,800,600,null);
 		
+		//graphToBack.setColor(Color.WHITE);
+		//graphToBack.fillRect(0, 0, 800, 600);
+		
 		graphToBack.setColor(Color.RED);
 		graphToBack.drawString("Defend your island ", 25, 50 );
 		
 
 
 		cannon.draw(graphToBack);
-		pirateShip.move("LEFT");
-		if (pirateShip.getX()<0)
+		ships.draw(graphToBack);
+		/*pirateShip.move("LEFT");
+		if (pirateShip.getX()<350)
 			pirateShip.setX(800);
-		pirateShip.draw(graphToBack);
+		pirateShip.draw(graphToBack);*/
 		
 
 	
@@ -95,20 +101,19 @@ public class IslandDefense extends Canvas implements KeyListener, Runnable {
 			{
 				ball.setSpeed(0);
 			}
-			if (ball.getX()>=pirateShip.getX()&&ball.getX()<=pirateShip.getX()+70&&ball.getY()>=pirateShip.getY()&&ball.getY()<=pirateShip.getY()+70)
-			{
-				pirateShip.explode(graphToBack);
-			}
+			ships.collide(ball, graphToBack);
 		}
 		
 		
 		if(keys[0] == true)
 		{
-			cannon.move("LEFT");
+			if (cannon.getX()>=100)
+				cannon.move("LEFT");
 		}
 		if(keys[1] == true)
 		{
-			cannon.move("RIGHT");
+			if (cannon.getX()<=275)
+				cannon.move("RIGHT");
 		}
 		if(keys[2] == true)
 		{

@@ -62,6 +62,12 @@ public class PirateShip extends MovingThing {
 		      setX(getX()+getSpeed());
 	}
 	
+	public void moveAndDraw(Graphics window)
+	{
+		move("LEFT");
+		draw(window);
+	}
+	
 	public void explode(Graphics window)
 	{
 		try
