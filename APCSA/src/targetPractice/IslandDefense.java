@@ -16,7 +16,6 @@ import java.util.ArrayList;
 public class IslandDefense extends Canvas implements KeyListener, Runnable {
 	
 	private Cannon cannon;
-	//private PirateShip pirateShip;
 	private Cannonball cannonball;
 	private ArrayList<Cannonball> shots;
 	private Image image;
