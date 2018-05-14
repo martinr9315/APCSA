@@ -40,7 +40,7 @@ public class PirateShips {
 		
 		for (PirateShip s: ships)
 			
-		if (ball.getX()>=s.getX()&&ball.getX()<=s.getX()+70&&ball.getY()>=s.getY()&&ball.getY()<=s.getY()+70)
+		if ((ball.getX()>=s.getX()&&ball.getX()<=s.getX()+70&&ball.getY()>=s.getY()&&ball.getY()<=s.getY()+70)&&!s.isHit())
 		{
 			s.explode(window);
 			return true;
@@ -49,7 +49,21 @@ public class PirateShips {
 		return false;
 	}
 	
-	public boolean allHit()
+	public boolean reachIsland()
+	{
+		boolean haveReached = false;
+		 for (PirateShip s : ships)
+		 {
+			 if (s.getX()<=300)
+			 {
+				 s.setSpeed(0);
+				 haveReached = true;
+			 }
+		 }
+		 return haveReached;
+	}
+	
+	public int shipsHit()
 	{
 		int hits=0;
 		 for (PirateShip s : ships)
@@ -63,9 +77,8 @@ public class PirateShips {
 			 {
 				 s.disappear();
 			 }
-			 return true;
 		 }
-		 return false;
+		 return hits;
 	}
 	
 	

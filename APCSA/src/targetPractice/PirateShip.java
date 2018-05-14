@@ -32,7 +32,7 @@ public class PirateShip extends MovingThing {
 		hit = false;
 		try
 		{
-			image = ImageIO.read(new File("src//targetPractice//pirateship.jpg"));
+			image = ImageIO.read(new File("src//targetPractice//pirateship.png"));
 		}
 		catch(Exception e)
 		{
@@ -93,7 +93,7 @@ public class PirateShip extends MovingThing {
 	
 	public void disappear() 
 	{
-		this.setPos(-100, -100);
+		this.setPos(900, -100);
 	}
 	
 	public String toString()
