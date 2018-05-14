@@ -85,8 +85,9 @@ public class IslandDefense extends Canvas implements KeyListener, Runnable {
 		//FIRST SCREEN
 		if (!playGame){
 		graphToBack.setColor(Color.BLACK);
-		graphToBack.drawString("Roxane Martin",20, 20);
-		graphToBack.drawString("AP CSA - P. 4",20, 45);
+		graphToBack.drawString("Island Defense",20, 20);
+		graphToBack.drawString("Roxane Martin",20, 45);
+		graphToBack.drawString("AP CSA - P. 4",20, 70);
 		graphToBack.setColor(Color.RED);
 		graphToBack.drawString("Your island is under attack! You must use your cannon to defend it.",325, 350);
 		graphToBack.drawString("To angle your cannon upward, press the up arrow.",325, 375);

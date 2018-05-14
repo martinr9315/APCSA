@@ -15,7 +15,7 @@ public class TargetPractice extends JFrame
 
 	public TargetPractice()
 	{
-		super("Cannon Fight");
+		super("Island Defense");
 		setSize(WIDTH,HEIGHT);
 
 		IslandDefense theGame = new IslandDefense();
